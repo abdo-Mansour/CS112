@@ -32,13 +32,13 @@ void text_to_morse() {
 
         for(int k = 0; k < 36;k++){
 
-            if(letters.at(i) == text[k]){
+            if(letters.at(i) == text[k]){ // this should find the index (k)  of the corresponding letter to find the morse code match
 
                 cout << morse[k] << " ";
 
             }
         }
-        if(isspace(letters.at(i))){
+        if(isspace(letters.at(i))){ // this should separate the morse code by 3 spaces to indicate a new word.
             cout << "   ";
         }
     }
@@ -46,20 +46,20 @@ void text_to_morse() {
 }
 
 void morse_to_text() {
-    string morse_code, temp_code;
-
-    cout << "Please enter the code: ";
+    string morse_code, temp_code;// temp_code will store the morse code letter separately and cleared after each letter
+    int spaces {0}; // will be used later to separate words.
+    cout << "Please enter the code:";
     getline(cin, morse_code);
 
     cout << "Converted text: ";
 
     for(int i = 0; i <= morse_code.length();i++){
+        if(i != morse_code.length() && morse_code[i] != ' ') {
 
-        if(morse_code[i] != ' '){
-            temp_code += morse_code[i];
+                temp_code += morse_code[i];
+                spaces = 0;
         }
-
-        else if(morse_code[i] == ' '){
+        else {
 
             for(int k = 0;k < 36;k++){
 
@@ -68,8 +68,16 @@ void morse_to_text() {
                 }
             }
             temp_code = "";
+            spaces++;
+        }
+        if(spaces == 3){
+            cout << " ";
         }
 
     }
 }
-// still remaining to solve the last letter bug and identify a condifition to separate words and not only letters in morse_to_Text function
+
+int main() {// this should give the user choices and execute according to the choice.
+    text_to_morse();
+    morse_to_text();
+}
