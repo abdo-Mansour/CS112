@@ -1,9 +1,3 @@
-// FCAI - Programming 1 - 2022 - Assignment 2
-// Program Name: Morse code encryption
-// Program description: This program should take input roman Letters and convert them to morse code and vice versa.
-// Last modification date: 15/3/2022
-// Created by Adham Mansour(20210057) Group A
-
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -13,7 +7,7 @@ using namespace std;
 //defining constants
 //this should define the letters and their corresponding morse code in separate variables letters and morse.
 char text[36] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+                 '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
 
 string morse[36] = {".-","-...","-.-.","-..",".","..-","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..",
                     ".----","..---","...--","....-",".....","-....","--....","---..","----.","-----"};
@@ -56,8 +50,8 @@ void morse_to_text() {
     for(int i = 0; i <= morse_code.length();i++){
         if(i != morse_code.length() && morse_code[i] != ' ') {
 
-                temp_code += morse_code[i];
-                spaces = 0;
+            temp_code += morse_code[i];
+            spaces = 0;
         }
         else {
 
@@ -78,6 +72,19 @@ void morse_to_text() {
 }
 
 int main() {// this should give the user choices and execute according to the choice.
-    text_to_morse();
-    morse_to_text();
+    string choice;
+    while(choice != "3") {
+        cout << "Enter 1 to encrypt \nEnter 2 to decrypt \nEnter 3 to exit\n";
+        getline(cin, choice);
+        if(choice == "1"){
+            text_to_morse();
+            cout << endl;
+        }
+        else if(choice == "2"){
+            morse_to_text();
+            cout << endl;
+        }
+    }
 }
+
+
