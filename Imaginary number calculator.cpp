@@ -14,15 +14,19 @@ int main(){
     std::complex<double> first_complete(first_real, first_imag), second_complete(second_real, second_image);
     //now we will deal with operations
     if(operation == "+"){
-        std::cout << first_complete + second_complete << "\n";
+        std::complex<double> result {first_complete + second_complete};
+        std::cout << "(" << result.real() << ", " << result.imag() << "i)" << "\n";
     }
     else if(operation == "-"){
-        std::cout << first_complete - second_complete << "\n";
+        std::complex<double> result {first_complete - second_complete};
+        std::cout << "(" << result.real() << ", " << result.imag() << "i)" << "\n";
     }
     else if(operation == "*"){
-        std::cout << first_complete * second_complete << "\n";
+        std::complex<double> result {first_complete * second_complete};
+        std::cout << "(" << result.real() << ", " << result.imag() << "i)" << "\n";
     }
     else if(operation == "/"){
-        std::cout << first_complete / second_complete << "\n";
+        std::complex<double> result {first_complete / second_complete};
+        std::cout << "(" << result.real() << ", " << result.imag() << "i)" << "\n";
     }
 }
